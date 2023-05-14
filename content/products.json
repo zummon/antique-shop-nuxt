@@ -7,7 +7,8 @@
     },
     "slug": "compass",
     "price": "$999",
-    "title": "Compass"
+    "title": "Compass",
+    "category": "Small"
   },
   {
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iste facilis, delectus dolor tempora natus quibusdam labore quia facere! Debitis corporis corrupti ab, sit aliquam at.",
@@ -17,7 +18,8 @@
     },
     "slug": "typing-machine",
     "price": "$999",
-    "title": "Typing machine"
+    "title": "Typing machine",
+    "category": "Medium"
   },
   {
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iste facilis, delectus dolor tempora natus quibusdam labore quia facere! Debitis corporis corrupti ab, sit aliquam at.",
@@ -27,7 +29,8 @@
     },
     "slug": "lamp",
     "price": "$999",
-    "title": "Lamp"
+    "title": "Lamp",
+    "category": "Large"
   },
   {
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iste facilis, delectus dolor tempora natus quibusdam labore quia facere! Debitis corporis corrupti ab, sit aliquam at.",
@@ -37,7 +40,8 @@
     },
     "slug": "door-bell",
     "price": "$999",
-    "title": "Door bell"
+    "title": "Door bell",
+    "category": "Small"
   },
   {
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iste facilis, delectus dolor tempora natus quibusdam labore quia facere! Debitis corporis corrupti ab, sit aliquam at.",
@@ -47,7 +51,8 @@
     },
     "slug": "clothes-maker",
     "price": "$999",
-    "title": "Clothes maker"
+    "title": "Clothes maker",
+    "category": "Large"
   },
   {
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iste facilis, delectus dolor tempora natus quibusdam labore quia facere! Debitis corporis corrupti ab, sit aliquam at.",
@@ -57,7 +62,8 @@
     },
     "slug": "compass-2",
     "price": "$999",
-    "title": "Compass"
+    "title": "Compass",
+    "category": "Small"
   },
   {
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iste facilis, delectus dolor tempora natus quibusdam labore quia facere! Debitis corporis corrupti ab, sit aliquam at.",
@@ -67,7 +73,8 @@
     },
     "slug": "typing-machine-2",
     "price": "$999",
-    "title": "Typing machine"
+    "title": "Typing machine",
+    "category": "Medium"
   },
   {
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iste facilis, delectus dolor tempora natus quibusdam labore quia facere! Debitis corporis corrupti ab, sit aliquam at.",
@@ -77,6 +84,7 @@
     },
     "slug": "lamp-2",
     "price": "$999",
-    "title": "Lamp"
+    "title": "Lamp",
+    "category": "Large"
   }
 ]

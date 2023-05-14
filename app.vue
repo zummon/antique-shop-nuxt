@@ -1,12 +1,12 @@
 <script setup>
+import "@fontsource/sacramento";
 useHead({
   // titleTemplate: (title) => (title ? title + ' - ' : '') + 'Antique Shop',
   // meta: [{ name: 'description', content: 'My amazing site.' }],
   bodyAttrs: {
-    class: 'uk-background-cover uk-background-fixed uk-height-viewport',
+    class: "uk-background-cover uk-background-fixed uk-height-viewport",
     style:
-      'background-image: url(https://source.unsplash.com/YSUnEXMVN5k/1920x2400);',
-      
+      "background-image: url(https://source.unsplash.com/YSUnEXMVN5k/1920x2400);",
   },
 });
 </script>
@@ -37,17 +37,51 @@ useHead({
     </Head>
     <div class="uk-padding uk-visible@s"></div>
     <div
-      class="
-        uk-container
-        uk-container-small
-        uk-background-muted
-        uk-border-rounded
-        uk-box-shadow-large
-      "
+      class="uk-container uk-container-small uk-background-muted uk-border-rounded uk-box-shadow-large"
     >
-      <TheHeader />
+      <!-- header -->
+      <div>
+        <h2
+          class="uk-margin-top uk-text-muted uk-text-center"
+          style="font-family: 'Sacramento', cursive"
+        >
+          Antique Shop
+        </h2>
+        <ul class="uk-flex-center uk-tab">
+          <li :class="$route.path === '/' ? 'uk-active' : ''">
+            <NuxtLink to="/"> Home </NuxtLink>
+          </li>
+          <li :class="$route.path === '/about' ? 'uk-active' : ''">
+            <NuxtLink to="/about"> About </NuxtLink>
+          </li>
+          <li :class="$route.path.startsWith('/product') ? 'uk-active' : ''">
+            <NuxtLink to="/product"> Product </NuxtLink>
+          </li>
+          <li :class="$route.path === '/faq' ? 'uk-active' : ''">
+            <NuxtLink
+              to="/faq"
+              uk-tooltip="title: Frequently Asked Questions; pos: bottom"
+            >
+              FAQ
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
+
+      <!-- body -->
       <NuxtPage />
-      <TheFooter />
+
+      <!-- footer -->
+      <div class="uk-text-center uk-margin-large-top uk-margin-large-bottom">
+        <a
+          class="uk-link-reset uk-text-large"
+          href="https://zummon.page/"
+          target="_blank"
+          style="font-family: 'Sacramento', cursive"
+        >
+          Made by zummon
+        </a>
+      </div>
     </div>
     <div class="uk-padding uk-visible@s"></div>
   </div>

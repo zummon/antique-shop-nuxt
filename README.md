@@ -1,9 +1,7 @@
 
 ### [Demo](https://y6ok7k-3000.csb.app/)
 
-- Change the site name in `./app.vue`
-- Change the site background in `./app.vue`
-- Change the custom font in `./app.vue`
+- Change the site name, the site background, and the custom font in `./app.vue`
 - Modify your data in `./content/products.json` to add, edit and remove the site pages.
 
 Something breaks, needs upgrade. Let me know.

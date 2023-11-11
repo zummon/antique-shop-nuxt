@@ -3,37 +3,34 @@ import products from '../../content/products.json';
 
 const route = useRoute();
 
-const { title, description, price, image } = products.find(
-  ({ slug }) => slug === route.params.slug
-);
+const { title, description, price, image } = products.find((item) => item.slug === route.params.slug);
+
 </script>
+
 <template>
-  <div class="uk-padding">
-    <div class="uk-flex uk-flex-wrap">
-      <div>
-        <h1>{{ title }}</h1>
-        <p class="uk-heading-bullet">{{ description }}</p>
-      </div>
-      <div class="uk-margin-auto-left uk-text-center">
-        <a
-          class="
-            uk-button
-            uk-button-primary
-            uk-text-large
-            uk-border-rounded
-            uk-box-shadow-medium
-          "
-        >
-          Purchese
-          <hr class="uk-margin-remove" />
-          {{ price }}
-        </a>
-      </div>
-    </div>
-    <img
-      class="uk-align-center uk-border-rounded uk-box-shadow-medium"
-      :src="image.src"
-      :alt="image.alt"
-    />
+  
+  <div class="mb-4 lg:mb-8">
+    <h1 class="text-4xl text-black mb-4">{{title}}</h1>
+    <p class="">{{description}}</p>
   </div>
+
+  <div class="mb-4 lg:mb-8 text-right">
+    <button
+      class="bg-yellow-800 text-white p-2 px-10 text-2xl rounded shadow-md text-center"
+    >
+      <span class="">
+        Purchese
+      </span>
+      <hr class="opacity-50" />
+      <span class="font-custom">
+        {{price}}
+      </span>
+    </button>
+  </div>
+
+  <img class="mx-auto rounded shadow-md" 
+    :src="image.src"
+    :alt="image.alt"
+  />
+
 </template>

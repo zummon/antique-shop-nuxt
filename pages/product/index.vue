@@ -2,41 +2,51 @@
 import products from "../../content/products.json";
 
 const title = "Product";
-let categories = [...new Set(products.map((item) => item.category))];
+const categories = [...new Set(products.map((item) => item.category))];
+const category = ref('')
+
 </script>
+
 <template>
-  <div class="uk-margin-top uk-margin-bottom" uk-filter="target: .js-filter">
-    <ul class="uk-subnav uk-subnav-divider uk-flex-center">
-      <li class="uk-active" uk-filter-control>
-        <a href="#">All</a>
-      </li>
-      <li
-        v-for="(text, index) in categories"
-        :uk-filter-control="`[data-category='${text}']`"
-        :key="`category-${index}`"
+
+  <ul class="divide-x-2 flex flex-wrap justify-center mb-4 lg:mb-8">
+    <li class="">
+      <button
+        :class="`inline-block px-4 py-2 text-yellow-800 ${category == '' ? 'font-semibold' : ''}`"
+        @click="() => {
+          category = ''
+        }"
       >
-        <a href="#">{{ text }}</a>
-      </li>
-    </ul>
-    <div
-      class="js-filter uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-grid-small"
-      uk-grid="masonry: true"
-    >
-      <div
-        v-for="(
-          { description, image, slug, price, title, category }, index
-        ) in products"
-        :data-category="category"
-        :key="`product-${index}`"
+        All
+      </button>
+    </li>
+    <li v-for="(value,index) in categories" :key="`category-${index}`" class="">
+      <button
+        :class="`inline-block px-4 py-2 text-yellow-800 ${category == value ? 'font-semibold' : ''}`"
+        @click="() => {
+          category = value;
+        }"
       >
-        <Product
-          :description="description"
-          :image="image"
-          :slug="slug"
-          :price="price"
-          :title="title"
-        />
-      </div>
+        {{value}}
+      </button>
+    </li>
+  </ul>
+
+  <div class="sm:columns-2 md:columns-3 lg:columns-4">
+    <div v-for="(item,index) in products.filter((item) => {
+      if (category == '') {
+        return true;
+      }
+      return item.category == category;
+    })" :key="`product-${index}`" class="mb-4">
+      <Product 
+        :description="item.description"
+        :image="item.image"
+        :slug="item.slug"
+        :price="item.price"
+        :title="item.title"
+      />
     </div>
   </div>
+
 </template>

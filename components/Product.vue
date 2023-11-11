@@ -5,22 +5,16 @@ export default {
 </script>
 
 <template>
-  <NuxtLink
-    :to="`/product/${slug}`"
-    class="
-      uk-display-block
-      uk-inline-clip
-      uk-transition-toggle
-      uk-border-rounded
-      uk-box-shadow-medium
-    "
-    tabIndex="0"
-    :uk-tooltip="price"
-  >
-    <img
-      class="uk-transition-scale-up uk-transition-opaque"
-      :src="image.src"
-      :alt="image.alt"
-    />
-  </NuxtLink>
+  <abbr class="" :title="`${title} ${price}`">
+    <NuxtLink
+      class="flex items-center overflow-clip transition rounded shadow-md group max-h-80 md:max-h-none"
+      :to="`/product/${slug}`"
+    >
+      <img
+        class="group-hover:scale-110 group-focus:scale-110 object-cover object-center h-full w-full block transition duration-300"
+        :src="image.src"
+        :alt="image.alt"
+      />
+    </NuxtLink>
+  </abbr>
 </template>

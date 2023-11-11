@@ -1,21 +1,25 @@
 <script setup>
-import "@fontsource/sacramento";
+const route = useRoute()
+let sitename = 'Antique Shop'
+let navs = [
+		{ path: '/', text: 'Home' },
+		{ path: '/about', text: 'About' },
+	]
 useHead({
   // titleTemplate: (title) => (title ? title + ' - ' : '') + 'Antique Shop',
   // meta: [{ name: 'description', content: 'My amazing site.' }],
-  bodyAttrs: {
-    class: "uk-background-cover uk-background-fixed uk-height-viewport",
-    style:
-      "background-image: url(https://source.unsplash.com/YSUnEXMVN5k/1920x2400);",
-  },
 });
 </script>
 
 <template>
-  <div>
+  <div class="bg-cover bg-center bg-fixed min-h-screen lg:py-20 text-zinc-500"
+    :style="{ backgroundImage: `url(https://source.unsplash.com/YSUnEXMVN5k/1920x2400)` }"
+  >
+    <!-- Photo by Sergey Sokolov on Unsplash 
+		https://unsplash.com/photos/YSUnEXMVN5k -->
     <Head>
       <!-- need to fix for other page title -->
-      <Title>Antique Shop</Title>
+      <Title>{{sitename}}</Title>
       <!-- need to fix try to find a way to passing up props from pages -->
       <!-- <meta property="og:title" content={title} />
       <meta name="twitter:title" content={title} />
@@ -24,65 +28,66 @@ useHead({
       <meta name="twitter:description" content={description} />
       <meta property="og:image" content={image.src} />
       <meta name="twitter:image" content={image.src} /> -->
-      <Link
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/css/uikit.min.css"
       />
-      <Script
-        src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit.min.js"
-      ></Script>
-      <Script
-        src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit-icons.min.js"
-      ></Script>
     </Head>
-    <div class="uk-padding uk-visible@s"></div>
-    <div
-      class="uk-container uk-container-small uk-background-muted uk-border-rounded uk-box-shadow-large"
-    >
-      <!-- header -->
-      <div>
+    
+    <div class="max-w-5xl mx-auto bg-zinc-50 rounded shadow-lg">
+      <div class="p-4 lg:p-8">
         <h2
-          class="uk-margin-top uk-text-muted uk-text-center"
-          style="font-family: 'Sacramento', cursive"
+          class="text-zinc-500 text-4xl text-center mb-4 lg:mb-8 cursor-default font-custom"
         >
-          Antique Shop
+          {{sitename}}
         </h2>
-        <ul class="uk-flex-center uk-tab">
-          <li :class="$route.path === '/' ? 'uk-active' : ''">
-            <NuxtLink to="/"> Home </NuxtLink>
-          </li>
-          <li :class="$route.path === '/about' ? 'uk-active' : ''">
-            <NuxtLink to="/about"> About </NuxtLink>
-          </li>
-          <li :class="$route.path.startsWith('/product') ? 'uk-active' : ''">
-            <NuxtLink to="/product"> Product </NuxtLink>
-          </li>
-          <li :class="$route.path === '/faq' ? 'uk-active' : ''">
-            <NuxtLink
-              to="/faq"
-              uk-tooltip="title: Frequently Asked Questions; pos: bottom"
-            >
-              FAQ
-            </NuxtLink>
-          </li>
-        </ul>
+
+        <div
+          class="flex flex-wrap justify-center items-baseline font-serif"
+        >
+          <div class="border-b-2 grow px-3 py-1 lg:px-5 lg:py-3">&nbsp;</div>
+          <div v-for="(item, index) in navs" :key="`nav-${index}`"
+            :class="`border-b-2 text-yellow-800 font-semibold px-3 py-1 lg:px-5 lg:py-3 ${route.path == item.path
+              ? 'border-yellow-800'
+              : ''}`"
+          >
+            <NuxtLink :to="item.path">{{item.text}}</NuxtLink>
+          </div>
+          
+          <div
+            :class="`border-b-2 text-yellow-800 font-semibold px-3 py-1 lg:px-5 lg:py-3 ${route.path.startsWith('/product')
+              ? 'border-yellow-800'
+              : ''}`"
+          >
+            <NuxtLink to="/product">Product</NuxtLink>
+          </div>
+          <div
+            :class="`border-b-2 text-yellow-800 font-semibold px-3 py-1 lg:px-5 lg:py-3 ${route.path == '/faq'
+              ? 'border-yellow-800'
+              : ''}`"
+          >
+            <abbr class="no-underline" title="Frequently Asked Questions">
+              <NuxtLink to="/faq">FAQ</NuxtLink>
+            </abbr>
+          </div>
+          <div class="border-b-2 grow px-3 py-1 lg:px-5 lg:py-3">&nbsp;</div>
+        </div>
       </div>
 
-      <!-- body -->
-      <NuxtPage />
+      <div class="p-4 lg:p-8 font-serif">
+        <NuxtPage/>
+      </div>
 
-      <!-- footer -->
-      <div class="uk-text-center uk-margin-large-top uk-margin-large-bottom">
-        <a
-          class="uk-link-reset uk-text-large"
-          href="https://zummon.page/"
-          target="_blank"
-          style="font-family: 'Sacramento', cursive"
+      <div class="p-4 lg:p-8 text-center">
+        <span
+          class="text-zinc-500 text-2xl cursor-default font-custom"
         >
-          Made by zummon
-        </a>
+          Made by zummon (Teerapat Anantarattanachai)
+        </span>
       </div>
     </div>
-    <div class="uk-padding uk-visible@s"></div>
+
   </div>
 </template>
